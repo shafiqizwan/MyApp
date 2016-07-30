@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:myapp="clr-namespace:myApp;assembly=myApp"
+             x:Class="MyApp.Views.AboutView"
+             Title="My Biodata">
+  
+<Grid>
+  <Grid.RowDefinitions>
+    <RowDefinition Height="3*" />
+    <RowDefinition Height="*" />
+    <RowDefinition Height="*" />
+    <RowDefinition Height="5*" />
+  </Grid.RowDefinitions>
+  <Grid.ColumnDefinitions>
+    <ColumnDefinition Width="*" />
+    <ColumnDefinition Width="*" />
+    <ColumnDefinition Width="*" />
+    <ColumnDefinition Width="*" />
+    <ColumnDefinition Width="*" />
+    <ColumnDefinition Width="*" />
+  </Grid.ColumnDefinitions>
+  
+  <Image 
+      x:Name="_backgroundImage" 
+      Grid.ColumnSpan="6" 
+      Grid.RowSpan="2" 
+      Source="xamarinLogo2" 
+      Aspect="AspectFill" />
+
+  <controls:CircleImage
+      Grid.ColumnSpan="6"
+      Grid.RowSpan="2"
+      Margin="15,0,15,5"
+      Source="me"
+      BorderColor="#ffffff"
+      BorderThickness="2"
+      HorizontalOptions="Center"
+      VerticalOptions="Center"/> <!--Margin="15,0,15,5"-->
+  
+<ScrollView
+  x:Name="_ScrollView"
+  Grid.RowSpan="4"
+  Grid.ColumnSpan="6">
+  <StackLayout Spacing="0" Padding="20,10,20,150">
+    <Label Text="{Binding Body}" TextColor="White" />
+    <BoxView x:Name="_hiddenBoxView" Color="Transparent" VerticalOptions="FillAndExpand"/>
+  </StackLayout>
+  </ScrollView>
+  
+<StackLayout
+      x:Name="_nameStack"
+      Grid.Row="2"
+      Grid.RowSpan="2"
+      Grid.ColumnSpan="6"
+      VerticalOptions="Start"
+      Spacing="0"> 
+      <BoxView />
+      <Label 
+        x:Name="_nameLabel" 
+        Text="Bryan Smith" 
+        FontSize="36" 
+        VerticalOptions="CenterAndExpand" 
+        Margin="20,0,20,0" 
+        MinimumHeightRequest="0" >
+      </Label>
+      <BoxView VerticalOptions="End"/>
+    </StackLayout>
+
+</Grid>
+
+</ContentPage>
